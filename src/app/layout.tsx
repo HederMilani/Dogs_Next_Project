@@ -1,5 +1,6 @@
-import type {Metadata} from "next";
+import type { Metadata } from "next";
 import "./globals.css";
+import { type_spectral } from "@/functions/fonts";
 
 export const metadata: Metadata = {
   title: "Dogs Next",
@@ -13,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className=''>{children}</body>
+      <body className={type_spectral.variable}>{children}</body>
     </html>
   );
 }

@@ -1,9 +1,7 @@
-import Image from "next/image";
-
 export default function Home() {
   return (
-    <main className="">
-      <h1>Dogs Next</h1>
+    <main>
+      <h1 className="title">Dog Next</h1>
     </main>
   );
 }
