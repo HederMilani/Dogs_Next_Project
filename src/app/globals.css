@@ -6,7 +6,7 @@
 
 body {
     --type-first: Helvetica, Arial, sans-serif;
-    --type-second: Georgia;
+    --type-second: var(--type-spectral), Georgia;
     font-family: var(--type-first);
     margin: 0px;
     background-color: #f0f0f0;

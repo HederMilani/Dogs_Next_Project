@@ -1,4 +1,4 @@
-import { Spectral } from "next/dist/compiled/@next/font/dist/google";
+import { Spectral } from "next/font/google";
 
 export const type_spectral = Spectral({
   weight: ["700"],
