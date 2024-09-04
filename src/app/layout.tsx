@@ -17,9 +17,11 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={type_spectral.variable}>
-        <Header />
-        {children}
-        <Footer />
+        <div className="App">
+          <Header />
+          <main className="AppBody">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
