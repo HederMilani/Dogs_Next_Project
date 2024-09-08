@@ -3,25 +3,32 @@ import "./globals.css";
 import { type_spectral } from "@/functions/fonts";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import { UserContextProvider } from "@/context/user-context";
+import React from "react";
+import UserGet from "@/action/user-get";
 
 export const metadata: Metadata = {
   title: "Dogs Next",
   description: "Rede social para cachorros",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const { data } = await UserGet();
+
   return (
     <html lang="pt-BR">
       <body className={type_spectral.variable}>
-        <div className="App">
-          <Header />
-          <main className="AppBody">{children}</main>
-          <Footer />
-        </div>
+        <UserContextProvider user={data}>
+          <div className="App">
+            <Header />
+            <main className="AppBody">{children}</main>
+            <Footer />
+          </div>
+        </UserContextProvider>
       </body>
     </html>
   );
