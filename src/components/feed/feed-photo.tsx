@@ -13,7 +13,7 @@ export default function FeedPhoto({ photos }: FeedProps) {
       <ul className={`animeLeft ${styles.feed}`}>
         {photos.map((photo, i) => (
           <li className={styles.photo} key={photo.id + i}>
-            <Link href={`/photo/${photo.id}`} scroll={false}>
+            <Link href={`/foto/${photo.id}`} scroll={false}>
               <Image
                 src={photo.src}
                 alt={photo.title}
