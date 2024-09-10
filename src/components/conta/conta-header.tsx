@@ -9,6 +9,8 @@ import AdicionarIcons from "@/icons/adicionar-icons";
 import FeedIcon from "@/icons/feed-icon";
 import EstatisticasIcon from "@/icons/estatisticas-icon";
 import SairIcon from "@/icons/sair-icon";
+import Logout from "@/action/logout";
+import { useUser } from "@/context/user-context";
 
 function getTitle(pathname: string) {
   switch (pathname) {
@@ -24,14 +26,16 @@ function getTitle(pathname: string) {
 export default function ContaHeader() {
   const mobile = UseMedia("(max-width: 40rem)");
   const [mobileMenu, setMobileMenu] = React.useState(false);
+  const { setUserState } = useUser();
 
   const pathname = usePathname();
   React.useEffect(() => {
     setMobileMenu(false);
   }, [pathname]);
 
-  function handleClick() {
-    // userLogout();
+  async function handleClick() {
+    await Logout();
+    setUserState(null);
   }
 
   return (
