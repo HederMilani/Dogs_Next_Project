@@ -1,9 +1,11 @@
 "use client";
 
+import styles from "./feed-photo.module.css";
 import FeedPhoto from "@/components/feed/feed-photo";
 import { Photo } from "@/types/photo";
 import React from "react";
 import PhotosGet from "@/action/photos-get";
+import Loading from "@/components/helper/loading";
 
 type FeedProps = {
   photos: Photo[];
@@ -61,11 +63,8 @@ export default function Feed({ photos, user = 0 }: FeedProps) {
 
   return (
     <section className="container mainContainer">
-      <h1 className="title">Feed</h1>
       <FeedPhoto photos={photoFeed} />
-      {loading && (
-        <p style={{ textAlign: "center", margin: "2rem 0" }}>Loading...</p>
-      )}
+      <div className={styles.loadingWrapper}>{loading && <Loading />}</div>
     </section>
   );
 }
