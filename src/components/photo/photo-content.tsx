@@ -6,6 +6,7 @@ import { useUser } from "@/context/user-context";
 import PhotoDelete from "@/components/photo/photo-delete";
 import Image from "next/image";
 import { PhotoWithComments } from "@/types/photo";
+import PhotoComments from "@/components/photo/photo-comments";
 
 export default function PhotoContent({
   data,
@@ -41,7 +42,11 @@ export default function PhotoContent({
           </ul>
         </div>
       </div>
-      {/*<PhotoComments id={photo.id} comments={comments} single={single} />*/}
+      <PhotoComments
+        id={String(photo.id)}
+        comments={comments}
+        single={single}
+      />
     </div>
   );
 }
